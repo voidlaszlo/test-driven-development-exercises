@@ -75,5 +75,18 @@ class GreeterTest {
         assertEquals(expected, actual);
     }
 
+    @Test void
+    givenNameWithComma_whenGreet_thenReturnsCorrectGreeting() {
+        // GIVEN
+        final List<String> names = List.of("Amy", "Brian", "Charlotte,");
+        String expected = "Hello, Amy, Brian and Charlotte.";
+
+        // WHEN
+        String actual = greeter.greet(names);
+
+        // THEN
+        assertEquals(expected, actual);
+    }
+
 
 }

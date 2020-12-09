@@ -19,17 +19,18 @@ public class Greeter {
     }
 
     public String greet(List<String> names) {
-        StringBuilder result = new StringBuilder().append("Hello");
+        StringBuilder normalResult = new StringBuilder().append("Hello");
         Iterator<String> iterator = names.iterator();
         while (iterator.hasNext()) {
             String name = iterator.next();
-            if (!iterator.hasNext()) {
-                result.append(" and " + name + ".");
+            String cleanedName = StringUtils.remove(name, ",");
+            if(!iterator.hasNext()) {
+                normalResult.append(" and " + cleanedName + ".");
                 break;
             }
-            result.append(", " + name);
+            normalResult.append(", " + cleanedName);
         }
-        return result.toString();
+        return normalResult.toString();
     }
 
 }
